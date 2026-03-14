@@ -48,52 +48,52 @@ export default function AdminFeaturedPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white">Featured Products</h1>
         <button onClick={() => setShowForm(!showForm)}
-          className="bg-[var(--color-accent-blue)] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">
+          className="bg-accent-blue text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">
           {showForm ? 'Cancel' : '+ Add Schedule'}
         </button>
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-[var(--color-primary-light)] border border-white/10 rounded-xl p-6">
+        <form onSubmit={handleSubmit} className="bg-primary-light border border-white/10 rounded-xl p-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label className="block text-sm text-[var(--color-text-muted)] mb-1">Product *</label>
+              <label className="block text-sm text-text-muted mb-1">Product *</label>
               <select required value={form.product_id} onChange={e => setForm(f => ({ ...f, product_id: e.target.value }))}
-                className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[var(--color-accent-blue)]">
+                className="w-full bg-secondary border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-blue">
                 <option value="">Select product</option>
                 {products.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-sm text-[var(--color-text-muted)] mb-1">Start Date *</label>
+              <label className="block text-sm text-text-muted mb-1">Start Date *</label>
               <input type="date" required value={form.start_date} onChange={e => setForm(f => ({ ...f, start_date: e.target.value }))}
-                className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[var(--color-accent-blue)]" />
+                className="w-full bg-secondary border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-blue" />
             </div>
             <div>
-              <label className="block text-sm text-[var(--color-text-muted)] mb-1">End Date *</label>
+              <label className="block text-sm text-text-muted mb-1">End Date *</label>
               <input type="date" required value={form.end_date} onChange={e => setForm(f => ({ ...f, end_date: e.target.value }))}
-                className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[var(--color-accent-blue)]" />
+                className="w-full bg-secondary border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-blue" />
             </div>
             <div>
-              <label className="block text-sm text-[var(--color-text-muted)] mb-1">Countdown End</label>
+              <label className="block text-sm text-text-muted mb-1">Countdown End</label>
               <input type="datetime-local" value={form.countdown_end} onChange={e => setForm(f => ({ ...f, countdown_end: e.target.value }))}
-                className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[var(--color-accent-blue)]" />
+                className="w-full bg-secondary border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-blue" />
             </div>
           </div>
-          <button type="submit" className="mt-4 bg-[var(--color-accent-blue)] text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-600">Add Schedule</button>
+          <button type="submit" className="mt-4 bg-accent-blue text-white px-6 py-2 rounded-lg text-sm hover:bg-blue-600">Add Schedule</button>
         </form>
       )}
 
       <div className="space-y-3">
         {loading ? (
-          [1,2].map(i => <div key={i} className="h-20 bg-[var(--color-secondary)] rounded-xl animate-pulse" />)
+          [1,2].map(i => <div key={i} className="h-20 bg-secondary rounded-xl animate-pulse" />)
         ) : schedules.length === 0 ? (
-          <p className="text-[var(--color-text-muted)] text-center py-12">No featured schedules</p>
+          <p className="text-text-muted text-center py-12">No featured schedules</p>
         ) : schedules.map(schedule => (
-          <div key={schedule.id} className="bg-[var(--color-primary-light)] border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div key={schedule.id} className="bg-primary-light border border-white/10 rounded-xl p-4 flex items-center justify-between">
             <div>
               <p className="text-white font-medium">{schedule.product?.name || `Product #${schedule.product_id}`}</p>
-              <p className="text-xs text-[var(--color-text-muted)] mt-1">
+              <p className="text-xs text-text-muted mt-1">
                 {schedule.start_date} to {schedule.end_date}
                 {schedule.is_active ? <span className="ml-2 text-green-400">Active</span> : <span className="ml-2 text-red-400">Inactive</span>}
               </p>

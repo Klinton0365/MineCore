@@ -24,7 +24,7 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-[var(--color-text-muted)]">OFFER ENDS IN:</span>
+      <span className="text-sm text-text-muted">OFFER ENDS IN:</span>
       <div className="flex gap-1">
         {[
           { value: time.hours, label: 'H' },
@@ -32,10 +32,10 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
           { value: time.seconds, label: 'S' },
         ].map((unit, i) => (
           <div key={i} className="flex items-center gap-1">
-            <span className="bg-[var(--color-accent-blue)] text-white text-sm font-bold px-2 py-1 rounded min-w-[2rem] text-center">
+            <span className="bg-accent-blue text-white text-sm font-bold px-2 py-1 rounded min-w-[2rem] text-center">
               {String(unit.value).padStart(2, '0')}
             </span>
-            {i < 2 && <span className="text-[var(--color-accent-blue)] font-bold">:</span>}
+            {i < 2 && <span className="text-accent-blue font-bold">:</span>}
           </div>
         ))}
       </div>

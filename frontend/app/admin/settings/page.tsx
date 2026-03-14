@@ -38,7 +38,7 @@ export default function AdminSettingsPage() {
     return (
       <div className="space-y-6">
         <h1 className="text-2xl font-bold text-white">Settings</h1>
-        <div className="space-y-4">{[1,2,3,4].map(i => <div key={i} className="h-16 bg-[var(--color-secondary)] rounded-xl animate-pulse" />)}</div>
+        <div className="space-y-4">{[1,2,3,4].map(i => <div key={i} className="h-16 bg-secondary rounded-xl animate-pulse" />)}</div>
       </div>
     );
   }
@@ -48,17 +48,17 @@ export default function AdminSettingsPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white">Settings</h1>
         <button onClick={handleSave} disabled={saving}
-          className="bg-[var(--color-accent-blue)] text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 disabled:opacity-50 transition-colors">
+          className="bg-accent-blue text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 disabled:opacity-50 transition-colors">
           {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Settings'}
         </button>
       </div>
 
-      <div className="bg-[var(--color-primary-light)] border border-white/10 rounded-xl p-6 space-y-4">
+      <div className="bg-primary-light border border-white/10 rounded-xl p-6 space-y-4">
         {settingsConfig.map(({ key, label }) => (
           <div key={key}>
-            <label className="block text-sm text-[var(--color-text-muted)] mb-1">{label}</label>
+            <label className="block text-sm text-text-muted mb-1">{label}</label>
             <input type="text" value={settings[key] || ''} onChange={e => setSettings(s => ({ ...s, [key]: e.target.value }))}
-              className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-[var(--color-accent-blue)]" />
+              className="w-full bg-secondary border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-accent-blue" />
           </div>
         ))}
       </div>

@@ -29,23 +29,23 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-primary)]/95 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[var(--color-accent-blue)] rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-accent-blue rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
               </svg>
             </div>
-            <span className="text-lg font-bold text-white tracking-wider">ALKEBULAN <span className="text-[var(--color-accent-blue)]">MINING</span></span>
+            <span className="text-lg font-bold text-white tracking-wider">ALKEBULAN <span className="text-accent-blue">MINING</span></span>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
-              <Link key={link.href} href={link.href} className="text-sm text-[var(--color-text-muted)] hover:text-white transition-colors">
+              <Link key={link.href} href={link.href} className="text-sm text-text-muted hover:text-white transition-colors">
                 {link.label}
               </Link>
             ))}
@@ -54,19 +54,19 @@ export function Navbar() {
           {/* Right actions */}
           <div className="flex items-center gap-4">
             {/* Search */}
-            <button onClick={() => setSearchOpen(!searchOpen)} className="text-[var(--color-text-muted)] hover:text-white transition-colors">
+            <button onClick={() => setSearchOpen(!searchOpen)} className="text-text-muted hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
 
             {/* Enquiry Cart */}
-            <Link href="/enquiry" className="relative text-[var(--color-text-muted)] hover:text-white transition-colors">
+            <Link href="/enquiry" className="relative text-text-muted hover:text-white transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
               </svg>
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[var(--color-accent-blue)] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                <span className="absolute -top-2 -right-2 bg-accent-blue text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -80,7 +80,7 @@ export function Navbar() {
             </a>
 
             {/* Mobile menu button */}
-            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[var(--color-text-muted)] hover:text-white">
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-text-muted hover:text-white">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -101,7 +101,7 @@ export function Navbar() {
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder="Search mining equipment..."
-                className="w-full bg-[var(--color-secondary)] border border-white/10 rounded-lg px-4 py-2 text-white placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-blue)]"
+                className="w-full bg-secondary border border-white/10 rounded-lg px-4 py-2 text-white placeholder:text-text-muted focus:outline-none focus:border-accent-blue"
                 autoFocus
               />
             </div>
@@ -112,7 +112,7 @@ export function Navbar() {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-white/10 pt-4">
             {navLinks.map(link => (
-              <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="block py-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
+              <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="block py-2 text-text-muted hover:text-white transition-colors">
                 {link.label}
               </Link>
             ))}

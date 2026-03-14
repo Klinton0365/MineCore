@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[600px] flex items-center pt-16 bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-primary-light)] to-[var(--color-secondary)]">
+    <section className="relative min-h-[600px] flex items-center pt-16 bg-gradient-to-br from-primary via-primary-light to-secondary">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -13,22 +13,22 @@ export function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-[var(--color-accent-blue)]/10 border border-[var(--color-accent-blue)]/30 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 bg-[var(--color-success)] rounded-full animate-pulse" />
-            <span className="text-sm text-[var(--color-accent-blue)]">Live Inventory Tracking</span>
+          <div className="inline-flex items-center gap-2 bg-accent-blue/10 border border-accent-blue/30 rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
+            <span className="text-sm text-accent-blue">Live Inventory Tracking</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Underground & Surface{' '}
-            <span className="text-[var(--color-accent-blue)]">Mining Equipment</span>
+            <span className="text-accent-blue">Mining Equipment</span>
           </h1>
 
-          <p className="mt-6 text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg text-text-muted max-w-2xl leading-relaxed">
             Global supplier of premium mining equipment with real-time inventory across Bangalore, Dubai, and the UK. Browse our catalog and get instant quotes.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/products" className="inline-flex items-center gap-2 bg-[var(--color-accent-blue)] text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors">
+            <Link href="/products" className="inline-flex items-center gap-2 bg-accent-blue text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors">
               Browse Products
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -51,8 +51,8 @@ export function HeroSection() {
             { value: '24/7', label: 'Support' },
           ].map(stat => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl font-bold text-[var(--color-accent-gold)]">{stat.value}</div>
-              <div className="text-xs text-[var(--color-text-muted)] mt-1">{stat.label}</div>
+              <div className="text-2xl font-bold text-accent-gold">{stat.value}</div>
+              <div className="text-xs text-text-muted mt-1">{stat.label}</div>
             </div>
           ))}
         </div>

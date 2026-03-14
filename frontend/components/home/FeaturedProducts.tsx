@@ -19,10 +19,10 @@ export function FeaturedProducts() {
 
   if (loading) {
     return (
-      <section className="py-16 bg-[var(--color-primary)]">
+      <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animate-pulse grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1,2,3,4].map(i => <div key={i} className="h-64 bg-[var(--color-secondary)] rounded-xl" />)}
+            {[1,2,3,4].map(i => <div key={i} className="h-64 bg-secondary rounded-xl" />)}
           </div>
         </div>
       </section>
@@ -34,13 +34,13 @@ export function FeaturedProducts() {
   const countdownEnd = featured[0]?.countdown_end;
 
   return (
-    <section className="py-16 bg-[var(--color-primary)]">
+    <section className="py-16 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[var(--color-accent-gold)]">&#9733;</span>
-              <span className="text-sm font-medium text-[var(--color-accent-gold)] uppercase tracking-wider">Products of the Week</span>
+              <span className="text-accent-gold">&#9733;</span>
+              <span className="text-sm font-medium text-accent-gold uppercase tracking-wider">Products of the Week</span>
             </div>
             <h2 className="text-2xl font-bold text-white">Featured Equipment</h2>
           </div>
