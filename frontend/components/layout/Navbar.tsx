@@ -65,7 +65,7 @@ export function Navbar() {
                 <div className="absolute -inset-1 bg-gradient-to-br from-accent-blue/20 to-accent-cyan/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div>
-                <span className="text-[15px] font-semibold tracking-[0.2em] text-white">ALKEBULAN</span>
+                <span className="text-[15px] font-semibold tracking-[0.15em] text-white">MINECORE <span className="text-text-secondary font-normal">Global</span></span>
                 <div className="h-[1.5px] w-0 group-hover:w-full bg-gradient-to-r from-accent-blue to-accent-cyan transition-all duration-500" />
               </div>
             </Link>

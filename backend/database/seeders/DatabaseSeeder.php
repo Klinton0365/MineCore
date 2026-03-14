@@ -462,8 +462,8 @@ class DatabaseSeeder extends Seeder
         // 7. Settings
         // -------------------------------------------------------
         $settings = [
-            ['key' => 'site_name',              'value' => 'Alkebulan Underground & Surface Mining Services'],
-            ['key' => 'contact_email',          'value' => 'info@alkebulanmining.com'],
+            ['key' => 'site_name',              'value' => 'MineCore Global'],
+            ['key' => 'contact_email',          'value' => 'info@minecoreglobal.com'],
             ['key' => 'contact_phone',          'value' => '+91 80 1234 5678'],
             ['key' => 'whatsapp_number',        'value' => '918012345678'],
             ['key' => 'sync_interval_minutes',  'value' => '30'],

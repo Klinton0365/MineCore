@@ -73,12 +73,12 @@ class EnquiryController extends Controller
         }
 
         // Send notification email to admin
-        $adminEmail = config('mail.admin_address', 'admin@alkebulanmining.com');
+        $adminEmail = config('mail.admin_address', 'admin@minecoreglobal.com');
         Mail::raw(
             "New enquiry #{$enquiry->id} from {$enquiry->customer_name} ({$enquiry->country}).\nEmail: {$enquiry->email}\nPhone: {$enquiry->phone}\nMessage: {$enquiry->message}",
             function ($message) use ($adminEmail, $enquiry) {
                 $message->to($adminEmail)
-                    ->subject("New Enquiry #{$enquiry->id} - Alkebulan Mining");
+                    ->subject("New Enquiry #{$enquiry->id} - MineCore Global");
             }
         );
 

@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alkebulan Underground & Surface Mining Services",
-  description: "Dynamic business automation platform for mining equipment - Real-time inventory, global stock visibility, and seamless enquiry management.",
+  title: "MineCore Global | Underground & Surface Mining Equipment",
+  description: "MineCore Global — Premium mining equipment with real-time inventory, global stock visibility, and seamless enquiry management across India, UAE, and UK.",
 };
 
 export default function RootLayout({

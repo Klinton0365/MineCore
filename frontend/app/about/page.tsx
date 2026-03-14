@@ -84,13 +84,13 @@ export default function AboutPage() {
           <FadeIn delay={0.1}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text tracking-tight leading-[1.1]">
               About{' '}
-              <span className="gradient-text">Alkebulan</span>
+              <span className="gradient-text">MineCore Global</span>
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <p className="mt-6 text-lg sm:text-xl text-text-muted max-w-2xl mx-auto leading-relaxed">
-              Alkebulan Underground & Surface Mining Services is a global provider
+              MineCore Global is a leading provider
               of premium mining equipment, tools, and safety solutions — connecting
               operations worldwide with the resources they need.
             </p>
