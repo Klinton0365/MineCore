@@ -2,15 +2,13 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FadeIn } from '@/components/ui/MotionWrapper';
-
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-primary" />
-      <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-radial" />
+      <div className="absolute inset-0 bg-grid opacity-100" />
+      <div className="absolute inset-0 bg-radial opacity-100" />
 
       {/* Floating orbs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent-blue/[0.07] rounded-full blur-[120px] animate-float" />
@@ -21,7 +19,7 @@ export function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="max-w-4xl">
           {/* Badge */}
-          <FadeIn delay={0.1}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <div className="inline-flex items-center gap-2.5 glass rounded-full px-4 py-2 mb-8">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
@@ -29,26 +27,26 @@ export function HeroSection() {
               </span>
               <span className="text-[13px] text-text-secondary font-medium">Live Inventory Tracking</span>
             </div>
-          </FadeIn>
+          </motion.div>
 
           {/* Heading */}
-          <FadeIn delay={0.2}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
               <span className="text-white">Underground &amp; Surface</span>
               <br />
               <span className="gradient-text">Mining Equipment</span>
             </h1>
-          </FadeIn>
+          </motion.div>
 
           {/* Subheading */}
-          <FadeIn delay={0.35}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <p className="mt-6 text-lg sm:text-xl text-text-secondary max-w-2xl leading-relaxed">
               Premium equipment sourced globally with real-time stock visibility across Bangalore, Dubai, and London. Browse, enquire, and procure — all in one platform.
             </p>
-          </FadeIn>
+          </motion.div>
 
           {/* CTAs */}
-          <FadeIn delay={0.5}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link href="/products" className="btn-primary inline-flex items-center gap-2">
                 <span>Explore Catalog</span>
@@ -64,10 +62,10 @@ export function HeroSection() {
                 <span>Contact Sales</span>
               </a>
             </div>
-          </FadeIn>
+          </motion.div>
 
           {/* Stats */}
-          <FadeIn delay={0.65}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}>
             <div className="mt-16 flex items-center gap-8 sm:gap-12">
               {[
                 { value: '3', label: 'Global Branches' },
@@ -83,7 +81,7 @@ export function HeroSection() {
                 </div>
               ))}
             </div>
-          </FadeIn>
+          </motion.div>
         </div>
 
         {/* Decorative right-side elements (desktop) */}
