@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-[72px] overflow-hidden dark-section">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-primary" />
+      <div className="absolute inset-0 bg-[#060d1b]" />
       <div className="absolute inset-0 bg-grid opacity-100" />
       <div className="absolute inset-0 bg-radial opacity-100" />
 
@@ -123,7 +123,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--color-primary)] to-transparent pointer-events-none" />
     </section>
   );
 }

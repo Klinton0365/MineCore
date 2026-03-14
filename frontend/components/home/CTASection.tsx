@@ -5,7 +5,7 @@ import { FadeIn } from '@/components/ui/MotionWrapper';
 
 export function CTASection() {
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden dark-section">
       {/* Layered gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-blue via-accent-blue/80 to-blue-950" />
 

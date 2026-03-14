@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import { EnquiryCartProvider } from "@/components/providers/EnquiryCartProvider";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 
 const geistSans = Geist({
@@ -26,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AuthProvider>
-          <EnquiryCartProvider>
-            <LayoutShell>{children}</LayoutShell>
-          </EnquiryCartProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <EnquiryCartProvider>
+              <LayoutShell>{children}</LayoutShell>
+            </EnquiryCartProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
