@@ -6,6 +6,7 @@ import { api } from '@/lib/api';
 import { StockBadge } from '@/components/ui/StockBadge';
 import { useEnquiryCart } from '@/lib/enquiry-store';
 import { FadeIn } from '@/components/ui/MotionWrapper';
+import { ProductQrCode } from '@/components/ui/ProductQrCode';
 import type { Product } from '@/lib/types';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -325,6 +326,24 @@ export default function ProductPage() {
                 </div>
               </FadeIn>
             )}
+
+            {/* QR Code */}
+            <FadeIn delay={0.32}>
+              <div className="glass-card rounded-2xl p-5">
+                <h3 className="text-xs font-semibold text-text-muted uppercase tracking-[0.1em] mb-3">
+                  Product QR Code
+                </h3>
+                <p className="text-xs text-text-secondary mb-4">
+                  Scan to share this product or access details instantly
+                </p>
+                <ProductQrCode
+                  productId={product.id}
+                  productName={product.name}
+                  size={120}
+                  showDownload={true}
+                />
+              </div>
+            </FadeIn>
 
             {/* CTA Section */}
             <FadeIn delay={0.35}>

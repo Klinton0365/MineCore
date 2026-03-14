@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\BranchPublicController;
 use App\Http\Controllers\Api\EnquiryController;
 use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\FeaturedController;
+use App\Http\Controllers\Api\QrController;
 use App\Http\Controllers\Api\SettingController;
 
 // Public routes
@@ -27,6 +28,8 @@ Route::get('/branches/public', [BranchPublicController::class, 'index']);
 Route::post('/enquiries', [EnquiryController::class, 'store']);
 
 Route::get('/featured/active', [FeaturedController::class, 'activeProducts']);
+
+Route::get('/qr/{productId}/scan', [QrController::class, 'scan']);
 
 // Protected admin routes
 Route::middleware('auth:sanctum')->group(function () {
@@ -50,6 +53,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/admin/enquiries/{enquiry}/status', [EnquiryController::class, 'updateStatus']);
 
     Route::apiResource('/admin/featured', FeaturedController::class);
+
+    Route::get('/admin/qr/analytics', [QrController::class, 'analytics']);
+    Route::get('/admin/qr/products/{productId}', [QrController::class, 'productScans']);
 
     Route::get('/admin/settings', [SettingController::class, 'index']);
     Route::put('/admin/settings', [SettingController::class, 'update']);
