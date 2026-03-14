@@ -2,23 +2,31 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="bg-primary-light border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-bold text-white mb-4">
-              ALKEBULAN <span className="text-accent-blue">MINING</span>
-            </h3>
-            <p className="text-sm text-text-muted leading-relaxed">
-              Underground & Surface Mining Services. Providing world-class mining equipment and solutions across India, UAE, and the United Kingdom.
+    <footer className="relative bg-primary-light">
+      {/* Gradient top divider */}
+      <div className="section-divider" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-blue to-accent-cyan flex items-center justify-center">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+              </div>
+              <span className="text-sm font-semibold tracking-[0.15em] text-white">ALKEBULAN</span>
+            </div>
+            <p className="text-sm text-text-muted leading-relaxed max-w-xs">
+              Global supplier of premium underground & surface mining equipment with real-time inventory across three continents.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 className="text-[11px] font-semibold text-text-secondary uppercase tracking-[0.2em] mb-5">Navigate</h4>
+            <ul className="space-y-3">
               {[
                 { href: '/', label: 'Home' },
                 { href: '/about', label: 'About Us' },
@@ -26,7 +34,8 @@ export function Footer() {
                 { href: '/enquiry', label: 'Enquiry' },
               ].map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-text-muted hover:text-accent-blue transition-colors">
+                  <Link href={link.href} className="group flex items-center gap-2 text-sm text-text-muted hover:text-white transition-colors duration-300">
+                    <span className="w-0 group-hover:w-3 h-[1px] bg-accent-blue transition-all duration-300" />
                     {link.label}
                   </Link>
                 </li>
@@ -36,50 +45,54 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact Us</h4>
-            <ul className="space-y-2 text-sm text-text-muted">
-              <li>Tech Park, Whitefield</li>
-              <li>Bangalore, India</li>
-              <li className="pt-2">
-                <a href="mailto:info@alkebulanmining.com" className="hover:text-accent-blue transition-colors">
+            <h4 className="text-[11px] font-semibold text-text-secondary uppercase tracking-[0.2em] mb-5">Contact</h4>
+            <ul className="space-y-3 text-sm text-text-muted">
+              <li>
+                <a href="mailto:info@alkebulanmining.com" className="hover:text-white transition-colors duration-300">
                   info@alkebulanmining.com
                 </a>
               </li>
               <li>
-                <a href="tel:+918012345678" className="hover:text-accent-blue transition-colors">
+                <a href="tel:+918012345678" className="hover:text-white transition-colors duration-300">
                   +91 80 1234 5678
                 </a>
+              </li>
+              <li className="pt-1 text-text-muted/70 leading-relaxed">
+                Tech Park, Whitefield<br/>Bangalore, India
               </li>
             </ul>
           </div>
 
-          {/* Global Presence */}
+          {/* Presence */}
           <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Global Presence</h4>
-            <ul className="space-y-2 text-sm text-text-muted">
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-success rounded-full"></span>
-                Bangalore, India (HQ)
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-warning rounded-full"></span>
-                Dubai, UAE
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-accent-blue rounded-full"></span>
-                London, United Kingdom
-              </li>
+            <h4 className="text-[11px] font-semibold text-text-secondary uppercase tracking-[0.2em] mb-5">Global Presence</h4>
+            <ul className="space-y-3">
+              {[
+                { location: 'Bangalore, India', status: 'HQ', color: 'bg-success' },
+                { location: 'Dubai, UAE', status: 'Hub', color: 'bg-accent-gold' },
+                { location: 'London, UK', status: 'Office', color: 'bg-accent-blue' },
+              ].map(item => (
+                <li key={item.location} className="flex items-center gap-3 text-sm text-text-muted">
+                  <span className={`w-1.5 h-1.5 rounded-full ${item.color} flex-shrink-0`} />
+                  <span>{item.location}</span>
+                  <span className="text-[10px] text-text-muted/50 uppercase tracking-wider">{item.status}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="border-t border-white/10 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs text-text-muted">
-            &copy; {new Date().getFullYear()} Alkebulan Underground & Surface Mining Services. All rights reserved.
+      {/* Bottom bar */}
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-text-muted/50">
+            &copy; {new Date().getFullYear()} Alkebulan Mining Services. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <Link href="/admin/login" className="text-xs text-text-muted/30 hover:text-text-muted/60 transition-colors">Admin</Link>
+          </div>
         </div>
       </div>
     </footer>

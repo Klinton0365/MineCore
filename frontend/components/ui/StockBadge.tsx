@@ -3,19 +3,18 @@ interface StockBadgeProps {
   className?: string;
 }
 
-const labels = {
-  in_stock: 'In Stock',
-  limited: 'Limited',
-  out_of_stock: 'Out of Stock',
+const config = {
+  in_stock: { label: 'In Stock', dot: 'bg-success' },
+  limited: { label: 'Limited', dot: 'bg-warning' },
+  out_of_stock: { label: 'Out of Stock', dot: 'bg-danger' },
 };
 
 export function StockBadge({ status, className = '' }: StockBadgeProps) {
+  const { label, dot } = config[status];
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium badge-${status.replace('_', '-')} ${className}`}>
-      <span className={`w-1.5 h-1.5 rounded-full ${
-        status === 'in_stock' ? 'bg-green-500' : status === 'limited' ? 'bg-yellow-500' : 'bg-red-500'
-      }`} />
-      {labels[status]}
+    <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[11px] font-medium badge-${status.replace(/_/g, '-')} ${className}`}>
+      <span className={`w-1 h-1 rounded-full ${dot}`} />
+      {label}
     </span>
   );
 }

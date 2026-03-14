@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { StockBadge } from './StockBadge';
 import { useEnquiryCart } from '@/lib/enquiry-store';
 import type { Product } from '@/lib/types';
@@ -16,25 +17,29 @@ export function ProductCard({ product }: ProductCardProps) {
   const bestStock = product.branches?.[0]?.pivot?.stock_status;
 
   return (
-    <div className="group bg-primary-light border border-white/10 rounded-xl overflow-hidden hover:border-accent-blue/50 transition-all duration-300">
+    <motion.div
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="glass-card rounded-2xl overflow-hidden group"
+    >
       {/* Image */}
       <Link href={`/products/${product.slug}`} className="block relative aspect-[4/3] bg-secondary overflow-hidden">
         {primaryImage ? (
           <img
             src={`${process.env.NEXT_PUBLIC_API_URL?.replace('/api', '')}/storage/${primaryImage.image_path}`}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-text-muted">
-            <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <div className="w-full h-full flex items-center justify-center">
+            <svg className="w-10 h-10 text-text-muted/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={0.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-2.25-1.313M21 7.5v2.25m0-2.25l-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3l2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75l2.25-1.313M12 21.75V15m0 0l-2.25 1.313M3 16.5v2.25M21 16.5v2.25M12 3v2.25m6.75 9l2.25-1.313M6.75 14.25l-2.25-1.313" />
             </svg>
           </div>
         )}
         {product.featured_badge && (
-          <span className="absolute top-2 left-2 bg-accent-gold text-black text-xs font-bold px-2 py-1 rounded">
-            {product.featured_badge === 'best_seller' ? 'Best Seller' : 'Featured'}
+          <span className="absolute top-3 left-3 text-[10px] font-semibold px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-sm border border-accent-gold/20">
+            <span className="gradient-gold">{product.featured_badge === 'best_seller' ? 'Best Seller' : 'Featured'}</span>
           </span>
         )}
       </Link>
@@ -42,26 +47,26 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Content */}
       <div className="p-4">
         <Link href={`/products/${product.slug}`}>
-          <h3 className="text-sm font-semibold text-white group-hover:text-accent-blue transition-colors line-clamp-1">
+          <h3 className="text-sm font-medium text-white group-hover:text-accent-blue transition-colors duration-300 line-clamp-1">
             {product.name}
           </h3>
         </Link>
-        <p className="text-xs text-text-muted mt-1 line-clamp-2">{product.description}</p>
+        <p className="text-xs text-text-muted mt-1.5 leading-relaxed line-clamp-2">{product.description}</p>
 
-        <div className="flex items-center justify-between mt-3">
-          {bestStock && <StockBadge status={bestStock} />}
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/[0.04]">
+          {bestStock ? <StockBadge status={bestStock} /> : <span />}
           <button
             onClick={() => !isInCart && addItem(product)}
-            className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${
+            className={`text-xs font-medium px-3 py-1.5 rounded-lg transition-all duration-300 ${
               isInCart
-                ? 'bg-green-500/20 text-green-400 cursor-default'
-                : 'bg-accent-blue text-white hover:bg-blue-600'
+                ? 'bg-success/10 text-success border border-success/20'
+                : 'bg-accent-blue/10 text-accent-blue hover:bg-accent-blue hover:text-white border border-accent-blue/20 hover:border-accent-blue'
             }`}
           >
             {isInCart ? 'Added' : 'Enquire'}
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

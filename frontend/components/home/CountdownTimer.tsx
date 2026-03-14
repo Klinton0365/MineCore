@@ -22,20 +22,35 @@ export function CountdownTimer({ targetDate }: { targetDate: string }) {
     return () => clearInterval(interval);
   }, [targetDate]);
 
+  const units = [
+    { label: 'HRS', value: time.hours },
+    { label: 'MIN', value: time.minutes },
+    { label: 'SEC', value: time.seconds },
+  ];
+
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-sm text-text-muted">OFFER ENDS IN:</span>
-      <div className="flex gap-1">
-        {[
-          { value: time.hours, label: 'H' },
-          { value: time.minutes, label: 'M' },
-          { value: time.seconds, label: 'S' },
-        ].map((unit, i) => (
-          <div key={i} className="flex items-center gap-1">
-            <span className="bg-accent-blue text-white text-sm font-bold px-2 py-1 rounded min-w-[2rem] text-center">
-              {String(unit.value).padStart(2, '0')}
+    <div className="flex items-center gap-3">
+      <span className="text-[10px] font-semibold tracking-[0.15em] text-text-muted uppercase">
+        Offer ends in:
+      </span>
+      <div className="flex items-center gap-1.5">
+        {units.map((unit, i) => (
+          <div key={unit.label} className="flex items-center gap-1.5">
+            <span
+              className={`glass inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full ${
+                unit.label === 'SEC' ? 'animate-pulse-slow' : ''
+              }`}
+            >
+              <span className="text-sm font-bold text-white tabular-nums font-mono tracking-wider">
+                {String(unit.value).padStart(2, '0')}
+              </span>
+              <span className="text-[9px] font-semibold text-text-muted tracking-widest">
+                {unit.label}
+              </span>
             </span>
-            {i < 2 && <span className="text-accent-blue font-bold">:</span>}
+            {i < units.length - 1 && (
+              <span className="text-white/20 text-[10px]">:</span>
+            )}
           </div>
         ))}
       </div>
