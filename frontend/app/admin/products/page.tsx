@@ -67,7 +67,7 @@ export default function AdminProductsPage() {
                 </td>
                 <td className="py-3 px-4">
                   <div className="flex gap-2">
-                    <Link href={`/admin/products/${product.id}/edit`} className="text-accent-blue hover:underline text-xs">Edit</Link>
+                    <Link href={`/admin/products/edit?slug=${product.slug}`} className="text-accent-blue hover:underline text-xs">Edit</Link>
                     <button onClick={() => handleDelete(product.id)} className="text-red-400 hover:underline text-xs">Delete</button>
                   </div>
                 </td>

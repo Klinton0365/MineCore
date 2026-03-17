@@ -228,6 +228,14 @@
       linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
   }
 
+  /* Light theme hero grid — subtle blue-tinted grid */
+  .hero-grid-light {
+    background-image:
+      linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
   .bg-radial {
     background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59,130,246,0.15), transparent);
   }

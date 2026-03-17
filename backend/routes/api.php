@@ -13,6 +13,13 @@ use App\Http\Controllers\Api\QrController;
 use App\Http\Controllers\Api\SettingController;
 
 // Public routes
+Route::get('/check', function () {
+    return response()->json([
+        'status' => 'ok',
+        'message' => 'API is working',
+    ]);
+});
+
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::post('/auth/register', [AuthController::class, 'register']);
 

@@ -1,20 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import { EnquiryCartProvider } from "@/components/providers/EnquiryCartProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { LayoutShell } from "@/components/layout/LayoutShell";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "MineCore Global | Underground & Surface Mining Equipment",
@@ -28,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className="antialiased">
         <ThemeProvider>
           <AuthProvider>
             <EnquiryCartProvider>
