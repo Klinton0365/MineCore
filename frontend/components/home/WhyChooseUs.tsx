@@ -3,6 +3,17 @@
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/MotionWrapper';
 import { useTheme } from '@/lib/theme';
 
+const brands = [
+  { name: 'Caterpillar', logo: '/brands/caterpillar.svg' },
+  { name: 'Sandvik', logo: '/brands/sandvik.svg' },
+  { name: 'Komatsu', logo: '/brands/komatsu.svg' },
+  { name: 'Epiroc', logo: '/brands/epiroc.svg' },
+  { name: 'Atlas Copco', logo: '/brands/atlas-copco.svg' },
+  { name: 'Liebherr', logo: '/brands/liebherr.svg' },
+  { name: 'Volvo', logo: '/brands/volvo.svg' },
+  { name: 'BELAZ', logo: '/brands/belaz.svg' },
+];
+
 const features = [
   {
     title: 'Real-Time Inventory',
@@ -112,18 +123,39 @@ export function WhyChooseUs() {
           })}
         </StaggerContainer>
 
-        {/* Trusted brands bar */}
+        {/* Trusted brands marquee */}
         <FadeIn delay={0.3}>
           <div className={`mt-16 pt-10 border-t ${isDark ? 'border-white/[0.04]' : 'border-slate-200/80'}`}>
             <p className={`text-center text-[10px] font-semibold tracking-[0.25em] uppercase mb-8 ${isDark ? 'text-text-muted/60' : 'text-slate-400'}`}>
               Trusted Equipment from World-Class Manufacturers
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {['Caterpillar', 'Sandvik', 'Komatsu', 'Epiroc', 'Atlas Copco', 'Liebherr', 'Volvo', 'BELAZ'].map((brand) => (
-                <span key={brand} className={`text-sm font-semibold tracking-wide ${isDark ? 'text-white/20' : 'text-slate-300'}`}>
-                  {brand}
-                </span>
-              ))}
+            <div className="relative overflow-hidden">
+              {/* Fade edges */}
+              <div className={`absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-r from-primary to-transparent' : 'bg-gradient-to-r from-[var(--color-primary)] to-transparent'}`} />
+              <div className={`absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-l from-primary to-transparent' : 'bg-gradient-to-l from-[var(--color-primary)] to-transparent'}`} />
+
+              <div className="marquee-track flex items-center gap-16 w-max">
+                {/* First set */}
+                {brands.map((brand) => (
+                  <div key={brand.name} className="flex-shrink-0 group cursor-pointer px-2">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className={`h-8 w-auto object-contain transition-all duration-500 ${isDark ? 'invert opacity-25 grayscale' : 'opacity-30 grayscale'} group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110`}
+                    />
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {brands.map((brand) => (
+                  <div key={`dup-${brand.name}`} className="flex-shrink-0 group cursor-pointer px-2">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className={`h-8 w-auto object-contain transition-all duration-500 ${isDark ? 'invert opacity-25 grayscale' : 'opacity-30 grayscale'} group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110`}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </FadeIn>
